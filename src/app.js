@@ -7,13 +7,18 @@ const userRouter = require("./routes/user.routes");
 const addressRouter = require("./routes/address.routes");
 const admissionRouter = require("./routes/admission.routes");
 const collegeRouter = require("./routes/college.routes");
-
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 initModels();
 
